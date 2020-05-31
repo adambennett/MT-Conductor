@@ -10,6 +10,4 @@ Based on r2modman, a mod manager for Risk of Rain 2 written by ebkr
 
 ## Screenshots
 
-Installed mod view
-
-![](https://imgur.com/otgj5lm)
+![](https://i.imgur.com/otgj5lm.png)
