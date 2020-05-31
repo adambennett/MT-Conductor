@@ -2,7 +2,7 @@
   <div>
     <hero :title=heroTitle :subtitle='loadingText' :heroType=heroType />
     <div class='notification is-warning'>
-        <p>Risk of Rain 2 updates may break mods. If a new update has been released, please be patient.</p>
+        <p>Monster Train updates may break mods. If a new update has been released, please be patient.</p>
     </div>
     <progress-bar
             :max='requests.length * 100'
@@ -16,7 +16,7 @@
             <li><a @click="view = 'about'" :class="[view === 'about' ? 'is-active' : '']">About</a></li>
             <li><a @click="view = 'faq'" :class="[view === 'faq' ? 'is-active' : '']">FAQ</a></li>
             <li>
-              <link-component :url="'https://github.com/ebkr/r2modmanPlus'" :target="'external'">
+              <link-component :url="'https://github.com/adambennett/MT-Conductor'" :target="'external'">
                 <i class="fab fa-github fa-lg" aria-hidden="true"/>
               </link-component>
             </li>
@@ -55,8 +55,8 @@
                     <li>
                       <p>
                         You can use the "Install with Mod Manager" button on <link-component
-                              :url="'https://thunderstore.io'" :target="'external'">Thunderstore</link-component>
-                        with r2modman.
+                              :url="'https://thunderstore.io'" :target="'external'">TrainStop</link-component>
+                        with Conductor.
                       </p>
                     </li>
                     <li>
@@ -74,8 +74,8 @@
                     <strong>Having trouble?</strong>
                   </p>
                   <p>
-                    Send a screenshot of the error in the Thunderstore modding discord server. Feel free to ping me
-                    if it doesn't get resolved.
+                    Send a screenshot of the error in the Monster Train discord server (modding channel). Feel free to ping me
+                    if it doesn't get resolved. (Nyoxide#3464)
                   </p>
                 </div>
                 <div class='container' v-else-if="view === 'about'">
@@ -84,10 +84,10 @@
                       <i class='fas fa-address-card'/>
                     </span>
                     &nbsp;
-                    <strong>About r2modman</strong>
+                    <strong>About Conductor</strong>
                   </p>
-                  <p>It's created by Ebkr, using Quasar.</p>
-                  <p>Quasar provides the following development tools that r2modman is built upon:</p>
+                  <p>It's created by Ebkr, using Quasar, for Risk of Rain 2. Modified by Nyoxide for Monster Train.</p>
+                  <p>Quasar provides the following development tools that Conductor is built upon:</p>
                   <ul>
                       <li>Electron</li>
                       <li>Node</li>
@@ -107,7 +107,7 @@
                       <li>
                           <strong><p>How do I get started?</p></strong>
                           <p>
-                              Head on over to the online tab, and download BepInEx and R2API.
+                              Head on over to the online tab, and download BepInEx and BaseMod.
                           </p>
                       </li>
                     <li>
@@ -156,7 +156,7 @@ import { Logger, LogSeverity } from '../r2mm/logging/Logger';
     }
 })
 export default class Splash extends Vue {
-    heroTitle: string = 'Starting r2modman';
+    heroTitle: string = 'Starting Conductor';
     loadingText: string = 'Initialising';
     heroType: string = 'is-info';
     view: string = 'main';
@@ -208,10 +208,10 @@ export default class Splash extends Vue {
 
     // Get the list of Thunderstore mods via /api/v1/package.
     private getThunderstoreMods(attempt: number) {
-        this.loadingText = 'Connecting to Thunderstore';
+        this.loadingText = 'Connecting to TrainStop';
         axios.get('https://thunderstore.io/api/v1/package', {
             onDownloadProgress: progress => {
-                this.loadingText = 'Getting mod list from Thunderstore'
+                this.loadingText = 'Getting mod list from TrainStop'
                 this.getRequestItem('ThunderstoreDownload').setProgress((progress.loaded / progress.total) * 100);
             }
         }).then(response => {
@@ -231,8 +231,8 @@ export default class Splash extends Vue {
             if (attempt < 5) {
                 this.getThunderstoreMods(attempt + 1);
             } else {
-                this.heroTitle = 'Failed to get mods from Thunderstore';
-                this.loadingText = 'You may be offline, however you may still use R2MM offline.';
+                this.heroTitle = 'Failed to get mods from TrainStop';
+                this.loadingText = 'You may be offline, however you may still use Conductor offline.';
             }
         })
     }
@@ -248,7 +248,7 @@ export default class Splash extends Vue {
 
     created() {
         ipcRenderer.once('receive-appData-directory', (_sender: any, appData: string) => {
-            PathResolver.ROOT = path.join(appData, 'r2modmanPlus-local');
+            PathResolver.ROOT = path.join(appData, 'conductor-local');
             fs.ensureDirSync(PathResolver.ROOT);
             ThemeManager.apply();
             Logger.Log(LogSeverity.INFO, `Starting manager on version ${ManagerInformation.VERSION.toString()}`);

@@ -116,7 +116,7 @@
           </header>
           <div class="card-content">
             <p>This may take a while, as mods are being downloaded.</p>
-            <p>Please do not close r2modman.</p>
+            <p>Please do not close Conductor.</p>
           </div>
         </div>
       </div>

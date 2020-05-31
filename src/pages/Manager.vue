@@ -4,7 +4,7 @@
 			<div class='container'>
 				<p>
 					An update is available.
-					<link-component :url="`https://github.com/ebkr/r2modmanPlus/releases/tag/${updateTagName}`"
+					<link-component :url="`https://github.com/adambennett/MT-Conductor/releases/tag/${updateTagName}`"
 					                :target="'external'"
 					>Click here to go to the release page.
 					</link-component>
@@ -62,7 +62,7 @@
 			<div class="modal-background" @click="closeGameRunningModal()"></div>
 			<div class='modal-content'>
 				<div class='notification is-info'>
-					<h3 class='title'>Risk of Rain 2 is launching via Steam</h3>
+					<h3 class='title'>Monster Train is launching via Steam</h3>
 					<h5 class="title is-5">Close this message to continue modding.</h5>
 					<p>If this is taking a while, it's likely due to Steam starting.</p>
 					<p>Please be patient, and have fun!</p>
@@ -149,7 +149,7 @@
 						game.
 					</p>
 				</div>
-				<p>Steam will be started, and will attempt to verify the integrity of Risk of Rain 2.</p>
+				<p>Steam will be started, and will attempt to verify the integrity of Monster Train.</p>
 				<br/>
 				<p>Please check the Steam window for validation progress. If the window has not yet appeared, please be
 					patient.
@@ -196,7 +196,7 @@
 		<div class='columns' id='content'>
 			<div class="column is-one-quarter">
 				<aside class="menu">
-					<p class="menu-label">Risk of Rain 2</p>
+					<p class="menu-label">Monster Train</p>
 					<ul class="menu-list">
 						<li><a @click="launchModded()"><i class="fas fa-play-circle"/>&nbsp;&nbsp;Start modded</a></li>
 						<li>
@@ -317,7 +317,7 @@
 								</template>
 								<a class='card-footer-item' @click='openModal(key)'>Download</a>
 								<div class='card-footer-item'>
-									<link-component :url="key.packageUrl" :target="'external'">View on Thunderstore
+									<link-component :url="key.packageUrl" :target="'external'">View on TrainStop
 									</link-component>
 								</div>
 								<div class='card-footer-item'>
@@ -440,7 +440,7 @@
 				<div v-show="view === 'settings'">
 					<template>
 						<hero title='Settings'
-						      :subtitle='"Advanced options for r2modman: " + managerVersionNumber.toString()'
+						      :subtitle='"Advanced options for Conductor: " + managerVersionNumber.toString()'
 						      heroType='is-info'/>
 						<ul class="list">
 							<li class="list-item" @click="browseDataFolder()">
@@ -501,7 +501,7 @@
 							</li>
 							<li class="list-item" @click="changeRoR2InstallDirectory()">
 								<a class="is-text is-text--bold">
-									<p>Locate Risk of Rain 2 directory</p>
+									<p>Locate Monster Train directory</p>
 								</a>
 							</li>
 							<li class="list-item" @click="changeSteamDirectory()">
@@ -535,13 +535,13 @@
 							<hero title='Tips and tricks' heroType='is-info'/>
 							<br/>
 							<h5 class='title is-5'>Install with Mod Manager</h5>
-							<p>Thunderstore has a way to install mods without having to search for them in the mod
+							<p>TrainStop has a way to install mods without having to search for them in the mod
 								manager.
 							</p>
-							<p>Just go to the Settings tab, and associate r2modman with Thunderstore!</p>
+							<p>Just go to the Settings tab, and associate Conductor with TrainStop!</p>
 							<br/>
 							<h5 class='title is-5'>Server? No problem!</h5>
-							<p>You can have multiple installs of r2modman, each one pointing to a different server, and
+							<p>You can have multiple installs of Conductor, each one pointing to a different server, and
 								of course, one for your regular modded game.
 							</p>
 							<br/>
@@ -559,12 +559,12 @@
 							<br/>
 							<h5 class='title is-5'>If the BepInEx console appears</h5>
 							<p>It's very likely due to a broken mod.</p>
-							<p>Remove (or disable) all mods except for BepInEx and R2API. See if the problem still
+							<p>Remove (or disable) all mods except for BepInEx and BaseMod. See if the problem still
 								occurs.
 							</p>
 							<br/>
 							<h5 class='title is-5'>If it doesn't appear</h5>
-							<p>Locate your Risk of Rain 2 install directory via the Settings page.</p>
+							<p>Locate your Monster Train install directory via the Settings page.</p>
 							<p>If you're unsure where to find it, navigate to Steam, right click your game, and go to
 								"Manage > Browse local files"
 							</p>
@@ -594,7 +594,7 @@
 							</p>
 							<br/>
 							<h5 class='title is-5'>Are all of your mods up-to-date?</h5>
-							<p>Your mods may have a fix to get it working with the latest version of Risk of Rain 2.</p>
+							<p>Your mods may have a fix to get it working with the latest version of Monster Train.</p>
 							<p>You can update mods by going to the "Installed" tab, clicking on mods with the update
 								icon, and clicking the update button.
 							</p>
@@ -603,13 +603,13 @@
 						<div v-else-if="helpPage === 'likeR2'">
 							<hero :title="'Enjoying the manager?'" :subtitle="'I hope so!'" heroType='is-danger'/>
 							<br/>
-							<h5 class='title is-5'>You can help support r2modman in multiple ways!</h5>
+							<h5 class='title is-5'>You can help support Conductor in multiple ways!</h5>
 							<div class="content">
 								<ul>
 									<li>Leave a thumbs-up on
 										<link-component url='https://thunderstore.io/package/ebkr/r2modman/'
 										                :target="'external'">
-											r2modman's Thunderstore page
+											Conductor's TrainStop page
 										</link-component>
 										.
 									</li>
@@ -623,12 +623,12 @@
 									<li>Don't forget to show your friends!</li>
 								</ul>
 							</div>
-							<p>But most importantly, recommend new feature ideas! r2modman needs your help to be the
-								best possible mod manager for Risk of Rain 2!
+							<p>But most importantly, recommend new feature ideas! Conductor needs your help to be the
+								best possible mod manager for Monster Train!
 							</p>
 						</div>
 						<div v-else>
-							<hero :title="'Help with r2modman'" heroType='is-info'/>
+							<hero :title="'Help with Conductor'" heroType='is-info'/>
 							<br/>
 							<h5 class='title is-5'>How do I install mods?</h5>
 							<p>Go to the "Online" tab, find a mod, and hit download. It'll also download the
@@ -638,7 +638,7 @@
 							<br/>
 							<h5 class='title is-5'>Launching the game modded using Steam</h5>
 							<p>If you want to launch the game modded using Steam, you need to launch the game via
-								r2modman at least once (per profile switch).
+								Conductor at least once (per profile switch).
 							</p>
 							<p>
 								Once you've done that,
@@ -649,16 +649,16 @@
 								</link-component>
 								,
 								replacing "BepInEx\core\BepInEx.Preloader.dll" with
-								"r2modman\BepInEx\core\BepInEx.Preloader.dll"
+								"Conductor\BepInEx\core\BepInEx.Preloader.dll"
 							</p>
 							<br/>
 							<h5 class='title is-5'>Something isn't working</h5>
 							<p>If you get any issues, look at the other pages that have appeared.</p>
 							<p>Failing that, mention me on the
-								<link-component url='https://discord.gg/5MbXZvd' :target="'external'">Thunderstore
+								<link-component url='https://discord.gg/5MbXZvd' :target="'external'">Monster Train
 									Discord Server!
 								</link-component>
-								@ Ebkr#3660
+								@ Nyoxide#3464
 							</p>
 						</div>
 					</template>
@@ -1291,8 +1291,8 @@
 					this.gameRunning = false;
 				});
 			} else {
-				return new R2Error('Failed to start Risk of Rain 2', 'The Risk of Rain 2 directory does not exist',
-					'Set the Risk of Rain 2 directory in the settings screen');
+				return new R2Error('Failed to start Monster Train', 'The Monster Train directory does not exist',
+					'Set the Monster Train directory in the settings screen');
 			}
 		}
 
@@ -1307,20 +1307,20 @@
 					this.gameRunning = false;
 				});
 			} else {
-				return new R2Error('Failed to start Risk of Rain 2', 'The Risk of Rain 2 directory does not exist',
-					'Set the Risk of Rain 2 directory in the settings screen');
+				return new R2Error('Failed to start Monster Train', 'The Monster Train directory does not exist',
+					'Set the Monster Train directory in the settings screen');
 			}
 		}
 
 		changeRoR2InstallDirectory() {
-			const ror2Directory: string = this.settings.riskOfRain2Directory || 'C:/Program Files (x86)/Steam/steamapps/common/Risk of Rain 2';
+			const ror2Directory: string = this.settings.riskOfRain2Directory || 'C:/Program Files (x86)/Steam/steamapps/common/Monster Train';
 			ipcRenderer.once('receive-selection', (_sender: any, files: string[] | null) => {
 				if (!isNull(files) && files.length === 1) {
 					this.settings.setRiskOfRain2Directory(files[0]);
 				}
 			});
 			ipcRenderer.send('open-dialog', {
-				title: 'Locate Risk of Rain 2 Directory',
+				title: 'Locate Monster Train Directory',
 				defaultPath: ror2Directory,
 				properties: ['openDirectory'],
 				buttonLabel: 'Select Directory'
