@@ -6,28 +6,28 @@ const routes: RouteConfig[] = [
         path: '/',
         component: () => import('pages/Splash.vue'),
         meta: {
-            title: () => 'r2modman'
+            title: () => 'Conductor'
         }
     },
     {
         path: '/profiles',
         component: () => import('pages/Profiles.vue'),
         meta: {
-            title: () => 'r2modman'
+            title: () => 'Conductor'
         }
     },
     {
         path: '/manager',
         component: () => import('pages/Manager.vue'),
         meta: {
-            title: () => 'r2modman - ' + Profile.getActiveProfile().getProfileName()
+            title: () => 'Conductor - ' + Profile.getActiveProfile().getProfileName()
         }
     },
     {
         path: '/config-editor',
         component: () => import('pages/ConfigEditor.vue'),
         meta: {
-            title: () => 'r2modman - ' + Profile.getActiveProfile().getProfileName()
+            title: () => 'Conductor - ' + Profile.getActiveProfile().getProfileName()
         }
     },
 ];

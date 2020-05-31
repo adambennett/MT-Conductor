@@ -1,11 +1,11 @@
 {
-  "name": "r2modman",
-  "version": "3.0.19",
-  "description": "r2modman",
-  "productName": "r2modman",
+  "name": "conductor",
+  "version": "1.0.0",
+  "description": "conductor",
+  "productName": "conductor",
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
-  "author": "ebkr@github.com",
+  "author": "Nyoxide",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore ./",

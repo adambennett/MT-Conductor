@@ -7,7 +7,7 @@ let resizeTimeout = undefined;
 export default class Persist {
 
   static getSize(app, { defaultWidth, defaultHeight }) {
-    const configFilePath = path.join(app.getPath('appData'), 'r2modmanPlus-local', 'config', 'window-state.yml');
+    const configFilePath = path.join(app.getPath('appData'), 'conductor-local', 'config', 'window-state.yml');
     if (fs.existsSync(configFilePath)) {
       try {
         const result = yaml.parse(fs.readFileSync(configFilePath).toString());
@@ -39,7 +39,7 @@ export default class Persist {
           'windowWidth': winSize[0],
           'windowHeight': winSize[1]
         });
-        const configPath = path.join(app.getPath('appData'), 'r2modmanPlus-local', 'config');
+        const configPath = path.join(app.getPath('appData'), 'conductor-local', 'config');
         const configFilePath = path.join(configPath, 'window-state.yml');
         try {
           fs.ensureDirSync(configPath);

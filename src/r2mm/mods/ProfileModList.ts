@@ -61,7 +61,7 @@ export default class ProfileModList {
                 return new FileWriteError(
                     `Failed to create mods.yml for profile: ${profile.getProfileName()}`,
                     err.message,
-                    'Try running r2modman as an administrator'
+                    'Try running Conductor as an administrator'
                 )
             }
         } catch(e) {
@@ -136,7 +136,7 @@ export default class ProfileModList {
         } catch(e) {
             const err: Error = e;
             return new R2Error('Failed to ensure directory exists', err.message,
-                'Try running r2modman as an administrator');
+                'Try running Conductor as an administrator');
         }
         const list: ManifestV2[] | R2Error = this.getModList(Profile.getActiveProfile());
         if (list instanceof R2Error) {
@@ -166,7 +166,7 @@ export default class ProfileModList {
         if (exportResult instanceof R2Error) {
             return exportResult;
         } else {
-            const profileBuffer = '#r2modman\n' + fs.readFileSync(exportResult).toString('base64');
+            const profileBuffer = '#Conductor\n' + fs.readFileSync(exportResult).toString('base64');
             Axios.post('https://hastebin-plus.herokuapp.com/documents', profileBuffer)
                 .then(resp => callback(resp.data.key, null))
                 .catch(e => {

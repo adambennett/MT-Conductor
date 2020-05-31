@@ -11,18 +11,18 @@ export default class PreloaderFixer {
         if (dirResult instanceof R2Error) {
             return dirResult;
         }
-        if (!fs.existsSync(path.join(dirResult, 'Risk of Rain 2.exe'))) {
-            return new R2Error('Risk of Rain 2 directory is invalid', 'could not find "Risk of Rain 2.exe"', 
-                'Set the Risk of Rain 2 directory in the settings section');
+        if (!fs.existsSync(path.join(dirResult, 'MonsterTrain.exe'))) {
+            return new R2Error('Monster Train directory is invalid', 'could not find "MonsterTrain.exe"',
+                'Set the Monster Train directory in the settings section');
         }
         try {
-            fs.removeSync(path.join(dirResult, 'Risk of Rain 2_Data', 'Managed'));
+            fs.removeSync(path.join(dirResult, 'MonsterTrain_Data', 'Managed'));
         } catch(e) {
             const err: Error = e;
-            return new R2Error('Failed to remove Managed directory', err.message, 'Try launching r2modman as an administrator');
+            return new R2Error('Failed to remove Managed directory', err.message, 'Try launching Conductor as an administrator');
         }
         try {
-            spawnSync(`powershell`, ['start', 'steam://validate/632360']);
+            spawnSync(`powershell`, ['start', 'steam://validate/1102190']);
         } catch(e) {
             const err: Error = e;
             return new R2Error('Failed to start steam://validate', err.message, null);
