@@ -67,7 +67,7 @@ export default class ModLinker {
                         } else {
                             // If directory, move to ${installDirectory}/r2modman/
                             // Directory should be empty from prior emptyDirSync
-                            fs.symlinkSync(path.join(Profile.getActiveProfile().getPathOfProfile(), file), path.join(installDirectory, 'r2modman', file), 'junction');
+                            fs.symlinkSync(path.join(Profile.getActiveProfile().getPathOfProfile(), file), path.join(installDirectory, 'conductor', file), 'junction');
                             newLinkedFiles.push(path.join(installDirectory, 'conductor', file));
                         }
                     })

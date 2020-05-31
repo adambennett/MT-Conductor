@@ -20,7 +20,7 @@ export default class ProfileInstaller {
     /**
      * Uninstalls a mod by looking through the top level of profile/BepInEx/*
      * Any folder inside * locations with the mod name will be deleted.
-     * @param mod 
+     * @param mod
      */
     public static uninstallMod(mod: ManifestV2): R2Error | null {
         if (mod.getName().toLowerCase() === 'bbepis-bepinexpack') {
@@ -177,7 +177,7 @@ export default class ProfileInstaller {
                 fs.ensureDirSync(profileLocation);
                 try {
                     fs.copySync(
-                        location, 
+                        location,
                         profileLocation
                     );
                     // Copy is complete, end recursive tree.
@@ -187,7 +187,7 @@ export default class ProfileInstaller {
                     return new FileWriteError(
                         `Failed to move mod: ${mod.getName()} with directory of: ${profileLocation}`,
                         err.message,
-                        'Is the game still running? If not, try running r2modman as an administrator'
+                        'Is the game still running? If not, try running Conductor as an administrator'
                     );
                 }
             } catch(e) {
@@ -195,7 +195,7 @@ export default class ProfileInstaller {
                 return new FileWriteError(
                     `Failed to create directories for: ${profileLocation}`,
                     err.message,
-                    'Is the game still running? If not, try running r2modman as an administrator'
+                    'Is the game still running? If not, try running Conductor as an administrator'
                 );
             }
         }
@@ -211,7 +211,7 @@ export default class ProfileInstaller {
                 fs.ensureDirSync(profileLocation);
                 try {
                     fs.copySync(
-                        file, 
+                        file,
                         path.join(profileLocation, path.basename(file))
                     );
                     // Copy is complete;
@@ -220,7 +220,7 @@ export default class ProfileInstaller {
                     return new FileWriteError(
                         `Failed to move mod: ${mod.getName()} with file: ${path.join(location, file)}`,
                         err.message,
-                        'Is the game still running? If not, try running r2modman as an administrator'
+                        'Is the game still running? If not, try running Conductor as an administrator'
                     );
                 }
             } catch(e) {
@@ -228,7 +228,7 @@ export default class ProfileInstaller {
                 return new FileWriteError(
                     `Failed to create directories for: ${profileLocation}`,
                     err.message,
-                    'Try running r2modman as an administrator'
+                    'Try running Conductor as an administrator'
                 );
             }
         });
@@ -262,14 +262,14 @@ export default class ProfileInstaller {
                 return new FileWriteError(
                     `Failed to copy file for BepInEx installation: ${file}`,
                     err.message,
-                    'Is the game still running? If not, try running r2modman as an administrator'
+                    'Is the game still running? If not, try running Conductor as an administrator'
                 )
             }
         })
         files.getDirectories().forEach((directory: BepInExTree) => {
             try {
                 fs.copySync(
-                    path.join(location, directory.getDirectoryName()), 
+                    path.join(location, directory.getDirectoryName()),
                     path.join(Profile.getActiveProfile().getPathOfProfile(), path.basename(directory.getDirectoryName()))
                 );
             } catch(e) {
@@ -277,7 +277,7 @@ export default class ProfileInstaller {
                 return new FileWriteError(
                     `Failed to copy folder for BepInEx installation: ${directory.getDirectoryName()}`,
                     err.message,
-                    'Is the game still running? If not, try running r2modman as an administrator'
+                    'Is the game still running? If not, try running Conductor as an administrator'
                 )
             }
         })
