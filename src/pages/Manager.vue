@@ -257,7 +257,7 @@
 								<li>
 									<a href='#' :class="[{'is-active': helpPage === 'likeR2'}]"
 									   @click="helpPage = 'likeR2'">
-										<i class="fas fa-heart"/>&nbsp;&nbsp;Like r2modman?
+										<i class="fas fa-heart"/>&nbsp;&nbsp;Like Conductor?
 									</a>
 								</li>
 							</ul>
@@ -614,7 +614,7 @@
 										.
 									</li>
 									<li>Star the project on
-										<link-component url='https://github.com/ebkr/r2modmanPlus/'
+										<link-component url='https://github.com/adambennett/MT-Conductor'
 										                :target="'external'">
 											GitHub
 										</link-component>
@@ -655,7 +655,7 @@
 							<h5 class='title is-5'>Something isn't working</h5>
 							<p>If you get any issues, look at the other pages that have appeared.</p>
 							<p>Failing that, mention me on the
-								<link-component url='https://discord.gg/5MbXZvd' :target="'external'">Monster Train
+								<link-component url='https://discord.gg/MonsterTrain' :target="'external'">Monster Train
 									Discord Server!
 								</link-component>
 								@ Nyoxide#3464

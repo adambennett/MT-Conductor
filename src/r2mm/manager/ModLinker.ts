@@ -26,14 +26,14 @@ export default class ModLinker {
     private static performSymlink(installDirectory: string, previouslyLinkedFiles: string[]): string[] | R2Error {
         const newLinkedFiles: string[] = [];
         try {
-            fs.emptyDirSync(path.join(installDirectory, 'r2modman'))
+            fs.emptyDirSync(path.join(installDirectory, 'conductor'))
         } catch(e) {
             const err: Error = e;
             return new R2Error(
                 'Failed to ensure directory was created',
                 err.message,
-                'If r2modman was installed in the Risk of Rain 2 directory, please reinstall in a different location. \nIf not, try running the manager as an administrator.'
-            ) 
+                'If Conductor was installed in the Monster Train directory, please reinstall in a different location. \nIf not, try running the manager as an administrator.'
+            )
         }
         try {
             Logger.Log(LogSeverity.INFO, `Files to remove: \n-> ${previouslyLinkedFiles.join('\n-> ')}`);
@@ -58,9 +58,9 @@ export default class ModLinker {
                                 } catch(e) {
                                     const err: Error = e;
                                     throw new FileWriteError(
-                                        `Couldn't copy file ${file} to RoR2 directory`,
+                                        `Couldn't copy file ${file} to Monster Train directory`,
                                         err.message,
-                                        'Try running r2modman as an administrator'
+                                        'Try running Conductor as an administrator'
                                     )
                                 }
                             }
@@ -68,13 +68,13 @@ export default class ModLinker {
                             // If directory, move to ${installDirectory}/r2modman/
                             // Directory should be empty from prior emptyDirSync
                             fs.symlinkSync(path.join(Profile.getActiveProfile().getPathOfProfile(), file), path.join(installDirectory, 'r2modman', file), 'junction');
-                            newLinkedFiles.push(path.join(installDirectory, 'r2modman', file));
+                            newLinkedFiles.push(path.join(installDirectory, 'conductor', file));
                         }
                     })
                 } catch(e) {
                     const err: Error = e;
                     return new FileWriteError(
-                        'Failed to produce a symlink between profile and RoR2',
+                        'Failed to produce a symlink between profile and Monster Train',
                         err.message,
                         'You may have to switch install mode in the settings'
                     );
@@ -84,15 +84,15 @@ export default class ModLinker {
                 return new R2Error(
                     `Unable to read directory for profile ${Profile.getActiveProfile().getProfileName()}`,
                     err.message,
-                    'Try running r2modman as an administrator'
-                ) 
+                    'Try running Conductor as an administrator'
+                )
             }
         } catch(e) {
             const err: Error = e;
             return new R2Error(
                 'Unable to delete file',
                 err.message,
-                'Try running r2modman as an administrator'
+                'Try running Conductor as an administrator'
             )
         }
         return newLinkedFiles;
@@ -118,9 +118,9 @@ export default class ModLinker {
                         } catch(e) {
                             const err: Error = e;
                             throw new FileWriteError(
-                                `Couldn't copy file ${file} to RoR2 directory`,
+                                `Couldn't copy file ${file} to Monster Train directory`,
                                 err.message,
-                                'Try running r2modman as an administrator'
+                                'Try running Conductor as an administrator'
                             )
                         }
                     }
@@ -134,10 +134,10 @@ export default class ModLinker {
             return new FileWriteError(
                 'Failed to produce a symlink between profile and RoR2',
                 err.message,
-                'If r2modman was installed in the Risk of Rain 2 directory, please reinstall in a different location. \nIf not, try running the manager as an administrator.'
+                'If Conductor was installed in the Monster Train directory, please reinstall in a different location. \nIf not, try running the manager as an administrator.'
             );
         }
         return [];
     }
-    
+
 }

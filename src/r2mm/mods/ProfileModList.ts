@@ -61,7 +61,7 @@ export default class ProfileModList {
                 return new FileWriteError(
                     `Failed to create mods.yml for profile: ${profile.getProfileName()}`,
                     err.message,
-                    'Try running r2modman as an administrator'
+                    'Try running Conductor as an administrator'
                 )
             }
         } catch(e) {

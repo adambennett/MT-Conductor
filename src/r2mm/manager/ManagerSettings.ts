@@ -73,7 +73,7 @@ export default class ManagerSettings {
                 return new FileWriteError(
                     'Failed to write conf.yml',
                     err.message,
-                    'Try running r2modman as an administrator'
+                    'Try running Conductor as an administrator'
                 )
             }
         } catch(e) {
