@@ -12,20 +12,4 @@ Based on r2modman, a mod manager for Risk of Rain 2 written by ebkr
 
 Installed mod view
 
-![](https://i.imgur.com/XNVQBuQ.png)
-
-Downloadable mods
-
-![](https://i.imgur.com/Do6Awz0.png)
-
-Dark theme
-
-![](https://i.imgur.com/szsyGWB.png)
-
-Config editor
-
-![](https://i.imgur.com/mkO4Q4H.png)
-
-Profiles
-
-![](https://i.imgur.com/HtWQIWZ.png)
+![](https://imgur.com/otgj5lm)
