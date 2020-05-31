@@ -16,8 +16,8 @@ export default class GameRunner {
             return;
         }
         Logger.Log(LogSeverity.INFO, `Steam directory is: ${steamDir}`);
-        Logger.Log(LogSeverity.INFO, `Running command: ${steamDir}.exe -applaunch 632360 --doorstop-enable true --doorstop-target r2modman\\BepInEx\\core\\BepInEx.Preloader.dll`);
-        child.spawn(`${steamDir}/Steam.exe`, ['-applaunch', '632360', '--doorstop-enable', 'true', '--doorstop-target', 'r2modman\\BepInEx\\core\\BepInEx.Preloader.dll']).on('error', err => {
+        Logger.Log(LogSeverity.INFO, `Running command: ${steamDir}.exe -applaunch 1102190 --doorstop-enable true`);
+        child.spawn(`${steamDir}/Steam.exe`, ['-applaunch', '1102190', '--doorstop-enable', 'true']).on('error', err => {
             Logger.Log(LogSeverity.ACTION_STOPPED, 'Error was thrown whilst starting modded');
             Logger.Log(LogSeverity.ERROR, err.message);
             onComplete(new R2Error('Error starting Steam', err.message, 'Ensure that the Steam directory has been set correctly in the settings'));
@@ -32,8 +32,8 @@ export default class GameRunner {
             return;
         }
         Logger.Log(LogSeverity.INFO, `Steam directory is: ${steamDir}`);
-        Logger.Log(LogSeverity.INFO, `Running command: ${steamDir}.exe -applaunch 632360 --doorstop-enable false`);
-        child.spawn(`${steamDir}/Steam.exe`, ['-applaunch', '632360', '--doorstop-enable', 'false']).on('error', err => {
+        Logger.Log(LogSeverity.INFO, `Running command: ${steamDir}.exe -applaunch 1102190 --doorstop-enable false`);
+        child.spawn(`${steamDir}/Steam.exe`, ['-applaunch', '1102190', '--doorstop-enable', 'false']).on('error', err => {
             Logger.Log(LogSeverity.ACTION_STOPPED, 'Error was thrown whilst starting vanilla');
             Logger.Log(LogSeverity.ERROR, err.message);
             onComplete(new R2Error('Error starting Steam', err.message, 'Ensure that the Steam directory has been set correctly in the settings'));

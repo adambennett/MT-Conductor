@@ -31,7 +31,7 @@ export default class GameDirectoryResolver {
                         // Remove colon
                         .substr(1)
                         .trim();
-                } 
+                }
             })
             if (isUndefined(installValue)) {
                 const err = new Error();
@@ -100,7 +100,7 @@ export default class GameDirectoryResolver {
                             'Unable to parse libraryfolders.vdf',
                             err.message,
                             null
-                        ) 
+                        )
                     }
                 }
             })
@@ -139,7 +139,7 @@ export default class GameDirectoryResolver {
         }
         if (manifestLocation === null) {
             return new FileNotFoundError(
-                'Unable to locate Risk of Rain 2 Installation Directory',
+                'Unable to locate Monster Train Installation Directory',
                 `Searched locations: ${locations}`,
                 null
             )
@@ -154,7 +154,7 @@ export default class GameDirectoryResolver {
                 return riskOfRain2Path;
             } else {
                 return new FileNotFoundError(
-                    'Risk of Rain 2 does not exist in Steam\'s specified location',
+                    'Monster Train does not exist in Steam\'s specified location',
                     `Failed to find directory: ${riskOfRain2Path}`,
                     null
                 )
@@ -162,7 +162,7 @@ export default class GameDirectoryResolver {
         } catch(e) {
             const err: Error = e;
             return new R2Error(
-                `An error occured whilst locating the Risk Of Rain 2 install directory from manifest in ${manifestLocation}`,
+                `An error occured whilst locating the Monster Train install directory from manifest in ${manifestLocation}`,
                 err.message,
                 null
             )

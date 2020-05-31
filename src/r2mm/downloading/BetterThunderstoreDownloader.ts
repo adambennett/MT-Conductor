@@ -79,8 +79,8 @@ export default class BetterThunderstoreDownloader {
         return builder;
     }
 
-    public static download(mod: ThunderstoreMod, modVersion: ThunderstoreVersion, allMods: ThunderstoreMod[], 
-                           callback: (progress: number, modName: string, status: number, err: R2Error | null) => void, 
+    public static download(mod: ThunderstoreMod, modVersion: ThunderstoreVersion, allMods: ThunderstoreMod[],
+                           callback: (progress: number, modName: string, status: number, err: R2Error | null) => void,
                            completedCallback: (modList: ThunderstoreCombo[]) => void) {
         let dependencies = this.buildDependencySet(modVersion, allMods, new Array<ThunderstoreCombo>());
         const combo = new ThunderstoreCombo();
@@ -135,7 +135,7 @@ export default class BetterThunderstoreDownloader {
     }
 
     public static downloadImportedMods(modList: ExportMod[],
-                                       callback: (progress: number, modName: string, status: number, err: R2Error | null) => void, 
+                                       callback: (progress: number, modName: string, status: number, err: R2Error | null) => void,
                                        completedCallback: (mods: ThunderstoreCombo[]) => void) {
         const tsMods: ThunderstoreMod[] = ThunderstorePackages.PACKAGES;
         const comboList: ThunderstoreCombo[] = [];
@@ -190,7 +190,7 @@ export default class BetterThunderstoreDownloader {
             });
         }
     }
-    
+
     private static calculateInitialDownloadSize(list: ThunderstoreCombo[]): number {
         return list.filter(value => !this.isVersionAlreadyDownloaded(value)).length;
     }
@@ -223,15 +223,15 @@ export default class BetterThunderstoreDownloader {
             fs.ensureDirSync(path.join(cacheDirectory, combo.getMod().getFullName()));
             fs.writeFileSync(
                 path.join(
-                    cacheDirectory, 
-                    combo.getMod().getFullName(), 
+                    cacheDirectory,
+                    combo.getMod().getFullName(),
                     combo.getVersion().getVersionNumber().toString() + '.zip'
-                ), 
+                ),
                 response
             );
             const extractError: R2Error | null = ZipExtract.extractAndDelete(
-                path.join(cacheDirectory, combo.getMod().getFullName()), 
-                combo.getVersion().getVersionNumber().toString() + '.zip', 
+                path.join(cacheDirectory, combo.getMod().getFullName()),
+                combo.getVersion().getVersionNumber().toString() + '.zip',
                 combo.getVersion().getVersionNumber().toString(),
                 callback
             );
@@ -241,7 +241,7 @@ export default class BetterThunderstoreDownloader {
             return new FileWriteError(
                 'File write error',
                 `Failed to write downloaded zip of ${combo.getMod().getFullName()} to profile directory of ${Profile.getActiveProfile().getPathOfProfile()}. \nReason: ${err.message}`,
-                'Try running r2modman as an administrator'
+                'Try running Conductor as an administrator'
             );
         }
         return null;
